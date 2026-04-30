@@ -193,7 +193,6 @@ export default function ExamTips() {
         <div
           className="card"
           style={{
-            background: 'linear-gradient(135deg, #FDFAF5 0%, #FAF4E8 100%)',
             textAlign: 'center',
             padding: '40px 32px',
           }}

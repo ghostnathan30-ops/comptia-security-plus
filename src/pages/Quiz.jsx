@@ -363,8 +363,8 @@ export default function Quiz({ saveQuizResult, quizHistory }) {
                         fontWeight: 700,
                         padding: '3px 10px',
                         borderRadius: 20,
-                        background: pct >= 75 ? '#E8F5EF' : '#FFF3E0',
-                        color: pct >= 75 ? '#4C9B7B' : '#9B7B4C',
+                        background: pct >= 75 ? 'var(--emerald-dim)' : 'var(--gold-dim)',
+                        color: pct >= 75 ? 'var(--emerald)' : 'var(--gold)',
                       }}
                     >
                       {pct >= 75 ? 'PASS' : 'NEEDS WORK'}
@@ -825,8 +825,8 @@ export default function Quiz({ saveQuizResult, quizHistory }) {
                         fontWeight: 700,
                         padding: '3px 10px',
                         borderRadius: 20,
-                        background: hpct >= 75 ? '#E8F5EF' : '#FFF3E0',
-                        color: hpct >= 75 ? '#4C9B7B' : '#9B7B4C',
+                        background: hpct >= 75 ? 'var(--emerald-dim)' : 'var(--gold-dim)',
+                        color: hpct >= 75 ? 'var(--emerald)' : 'var(--gold)',
                       }}
                     >
                       {hpct >= 75 ? 'PASS' : 'NEEDS WORK'}

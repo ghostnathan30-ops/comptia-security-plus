@@ -111,7 +111,7 @@ export default function Dashboard({ progress, getDomainProgress, streak }) {
 
       {/* Exam info */}
       <motion.div variants={fadeUp} custom={9} style={{ marginTop: 48 }}>
-        <div className="card" style={{ background: 'linear-gradient(135deg, #FDFAF5 0%, #FAF4E8 100%)' }}>
+        <div className="card">
           <h3 style={{ marginBottom: 16 }}>About the Exam</h3>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 20 }}>
             {[
