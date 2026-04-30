@@ -10,6 +10,7 @@ import Flashcards from './pages/Flashcards';
 import Quiz from './pages/Quiz';
 import Glossary from './pages/Glossary';
 import ExamTips from './pages/ExamTips';
+import Labs from './pages/Labs';
 
 export default function App() {
   const {
@@ -27,6 +28,9 @@ export default function App() {
     getFlashcardStats,
     quizHistory,
     saveQuizResult,
+    getLabCompletion,
+    setLabCompletion,
+    getLabStats,
   } = useProgress();
 
   return (
@@ -94,6 +98,16 @@ export default function App() {
             />
             <Route path="/glossary" element={<Glossary />} />
             <Route path="/exam-tips" element={<ExamTips />} />
+            <Route
+              path="/labs"
+              element={
+                <Labs
+                  getLabCompletion={getLabCompletion}
+                  setLabCompletion={setLabCompletion}
+                  getLabStats={getLabStats}
+                />
+              }
+            />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>

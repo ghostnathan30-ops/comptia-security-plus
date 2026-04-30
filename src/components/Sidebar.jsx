@@ -12,6 +12,7 @@ export default function Sidebar({ progress }) {
     { to: '/', icon: '◉', label: 'Dashboard' },
     { to: '/domains', icon: '▦', label: 'Domains' },
     { to: '/flashcards', icon: '⬛', label: 'Flashcards' },
+    { to: '/labs', icon: '⚗', label: 'Labs' },
     { to: '/quiz', icon: '✎', label: 'Practice Quiz' },
     { to: '/glossary', icon: '◈', label: 'Glossary' },
     { to: '/exam-tips', icon: '★', label: 'Exam Tips' },

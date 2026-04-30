@@ -153,6 +153,52 @@ export function useProgress() {
     saveMastery({});
   }, []);
 
+  // ── Lab completion persistence ─────────────────────────────
+  const LAB_KEY = 'sp_labs';
+
+  const getLabCompletion = useCallback((labId) => {
+    try {
+      const stored = localStorage.getItem(LAB_KEY);
+      if (!stored) return null;
+      const data = JSON.parse(stored);
+      return data[labId] || null;
+    } catch {
+      return null;
+    }
+  }, []);
+
+  const setLabCompletion = useCallback((labId, { passed }) => {
+    try {
+      const stored = localStorage.getItem(LAB_KEY);
+      const data = stored ? JSON.parse(stored) : {};
+      const existing = data[labId] || { attempts: 0 };
+      data[labId] = {
+        passed: passed || existing.passed || false,
+        attempts: existing.attempts + 1,
+        lastAttempt: new Date().toISOString(),
+      };
+      localStorage.setItem(LAB_KEY, JSON.stringify(data));
+    } catch {
+      // silent fail
+    }
+  }, []);
+
+  const getLabStats = useCallback(() => {
+    try {
+      const stored = localStorage.getItem(LAB_KEY);
+      if (!stored) return { total: 30, passed: 0, attempted: 0 };
+      const data = JSON.parse(stored);
+      const entries = Object.values(data);
+      return {
+        total: 30,
+        passed: entries.filter(e => e.passed).length,
+        attempted: entries.filter(e => e.attempts > 0).length,
+      };
+    } catch {
+      return { total: 30, passed: 0, attempted: 0 };
+    }
+  }, []);
+
   return {
     masteryMap,
     setMastery,
@@ -168,5 +214,8 @@ export function useProgress() {
     getFlashcardStats,
     quizHistory,
     saveQuizResult,
+    getLabCompletion,
+    setLabCompletion,
+    getLabStats,
   };
 }
