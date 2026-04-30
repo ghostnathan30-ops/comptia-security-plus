@@ -1,37 +1,180 @@
-/* ── Design Tokens ─────────────────────────────────────────── */
+/* ═══════════════════════════════════════════════════════════════════
+   CIPHER DESIGN SYSTEM  ·  CompTIA Security+ SY0-701
+   Theme toggle: data-theme="dark" | "light" on <html>
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── Dark Theme (default) ─────────────────────────────────────── */
 :root {
-  --bg: #FDFCF8;
-  --card: #FFFFFF;
-  --text: #1E1E2A;
-  --text-muted: #6B6B7A;
-  --gold: #9B7B4C;
-  --gold-light: #C4A06A;
-  --gold-pale: #F5EFE6;
-  --border: #EAE6DF;
-  --radius: 20px;
-  --radius-sm: 10px;
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
-  --shadow: 0 2px 16px rgba(155, 123, 76, 0.08);
-  --shadow-hover: 0 6px 32px rgba(155, 123, 76, 0.15);
-  --sidebar-width: 260px;
-  --transition: 0.2s ease;
+  /* Surfaces */
+  --bg:        #080E1A;
+  --surface:   #0D1626;
+  --surface-2: #131F35;
+  --surface-3: #1A2845;
+  --card: var(--surface);
+
+  /* Borders */
+  --border:      rgba(56,189,248,0.10);
+  --border-soft: rgba(255,255,255,0.06);
+  --border-med:  rgba(255,255,255,0.11);
+
+  /* Text */
+  --text:       #F1F5F9;
+  --text-muted: #64748B;
+  --text-dim:   #334155;
+
+  /* Primary accents */
+  --cyan:        #38BDF8;
+  --cyan-dim:    rgba(56,189,248,0.12);
+  --cyan-glow:   rgba(56,189,248,0.22);
+  --gold:        #F59E0B;
+  --gold-dim:    rgba(245,158,11,0.12);
+  --gold-light:  #FBBF24;
+  --gold-pale:   rgba(245,158,11,0.08);
+  --emerald:     #10B981;
+  --emerald-dim: rgba(16,185,129,0.12);
+  --rose:        #F43F5E;
+  --rose-dim:    rgba(244,63,94,0.12);
+  --violet:      #8B5CF6;
+  --violet-dim:  rgba(139,92,246,0.12);
+
+  /* Domain palette */
+  --d1: #38BDF8;   /* General Security   — cyan    */
+  --d2: #F43F5E;   /* Threats & Vulns    — rose    */
+  --d3: #8B5CF6;   /* Architecture       — violet  */
+  --d4: #10B981;   /* Security Ops       — emerald */
+  --d5: #F59E0B;   /* Management         — amber   */
+
+  /* Alpha layers — used instead of hardcoded rgba whites
+     These flip automatically in light mode */
+  --a-xs:        rgba(255,255,255,0.03);
+  --a-sm:        rgba(255,255,255,0.06);
+  --a-md:        rgba(255,255,255,0.10);
+  --a-lg:        rgba(255,255,255,0.16);
+  --a-border:    rgba(255,255,255,0.08);
+  --a-dim:       rgba(255,255,255,0.35);
+  --a-muted:     rgba(255,255,255,0.55);
+  --a-primary:   rgba(255,255,255,0.85);
+
+  /* Terminal / code blocks */
+  --terminal-bg:     #04080F;
+  --terminal-text:   #94A3B8;
+  --terminal-border: rgba(56,189,248,0.15);
+  --terminal-header: rgba(255,255,255,0.04);
+
+  /* Text on colored buttons */
+  --on-accent: #000000;
+
+  /* Shadows */
+  --shadow:       0 1px 4px rgba(0,0,0,0.5);
+  --shadow-hover: 0 6px 28px rgba(0,0,0,0.55);
+
+  /* Dot-grid texture colour */
+  --dot-color: rgba(56,189,248,0.045);
+
+  /* Gradients */
+  --grad-progress: linear-gradient(90deg, var(--cyan), var(--emerald));
+  --grad-shine:    linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+
+  /* Layout */
+  --radius:        12px;
+  --radius-sm:     8px;
+  --radius-pill:   20px;
+  --transition:    0.18s ease;
+  --sidebar-width: 240px;
+
+  /* Fonts */
+  --font-heading: 'Syne',          sans-serif;
+  --font-body:    'Inter',         sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
 }
 
-/* ── Reset ─────────────────────────────────────────────────── */
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* ── Light Theme ──────────────────────────────────────────────── */
+[data-theme="light"] {
+  --bg:        #EFF3F9;
+  --surface:   #FFFFFF;
+  --surface-2: #E8EDF5;
+  --surface-3: #DDE4EF;
+
+  --border:      rgba(2,132,199,0.18);
+  --border-soft: rgba(15,23,42,0.07);
+  --border-med:  rgba(15,23,42,0.12);
+
+  --text:       #0F172A;
+  --text-muted: #475569;
+  --text-dim:   #94A3B8;
+
+  --cyan:        #0284C7;
+  --cyan-dim:    rgba(2,132,199,0.09);
+  --cyan-glow:   rgba(2,132,199,0.15);
+  --gold:        #B45309;
+  --gold-dim:    rgba(180,83,9,0.09);
+  --gold-light:  #D97706;
+  --gold-pale:   rgba(180,83,9,0.07);
+  --emerald:     #059669;
+  --emerald-dim: rgba(5,150,105,0.09);
+  --rose:        #DC2626;
+  --rose-dim:    rgba(220,38,38,0.09);
+  --violet:      #7C3AED;
+  --violet-dim:  rgba(124,58,237,0.09);
+
+  --d1: #0284C7;
+  --d2: #DC2626;
+  --d3: #7C3AED;
+  --d4: #059669;
+  --d5: #B45309;
+
+  /* Alpha layers — dark-on-light */
+  --a-xs:      rgba(15,23,42,0.02);
+  --a-sm:      rgba(15,23,42,0.05);
+  --a-md:      rgba(15,23,42,0.08);
+  --a-lg:      rgba(15,23,42,0.14);
+  --a-border:  rgba(15,23,42,0.08);
+  --a-dim:     rgba(15,23,42,0.38);
+  --a-muted:   rgba(15,23,42,0.60);
+  --a-primary: rgba(15,23,42,0.85);
+
+  --terminal-bg:     #1E293B;
+  --terminal-text:   #CBD5E1;
+  --terminal-border: rgba(2,132,199,0.2);
+  --terminal-header: rgba(15,23,42,0.06);
+
+  --on-accent: #FFFFFF;
+
+  --shadow:       0 1px 3px rgba(0,0,0,0.08), 0 2px 10px rgba(0,0,0,0.06);
+  --shadow-hover: 0 4px 18px rgba(0,0,0,0.12), 0 8px 32px rgba(0,0,0,0.07);
+
+  --dot-color: rgba(15,23,42,0.05);
+
+  --grad-shine: linear-gradient(135deg, rgba(255,255,255,0.7) 0%, transparent 60%);
 }
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
+/* ── Smooth theme transitions ─────────────────────────────────── */
+body,
+.sidebar,
+.card,
+.accordion-item,
+.accordion-header,
+.flashcard-face,
+.quiz-option,
+.search-input,
+.configure-table th,
+.configure-table td {
+  transition:
+    background-color 0.22s ease,
+    border-color     0.22s ease,
+    color            0.22s ease,
+    box-shadow       0.22s ease;
 }
+
+/* ── Reset ────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
 
 body {
-  background: var(--bg);
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+  background-size: 28px 28px;
   color: var(--text);
   font-family: var(--font-body);
   font-weight: 400;
@@ -40,93 +183,98 @@ body {
   min-height: 100vh;
 }
 
-#root {
-  display: flex;
-  min-height: 100vh;
-}
+#root { display: flex; min-height: 100vh; }
 
-/* ── Typography ────────────────────────────────────────────── */
+/* ── Typography ───────────────────────────────────────────────── */
 h1, h2, h3, h4, h5 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.3;
+  font-weight: 700;
+  line-height: 1.25;
   color: var(--text);
 }
-
-h1 { font-size: 2.5rem; }
-h2 { font-size: 1.875rem; }
-h3 { font-size: 1.375rem; }
-h4 { font-size: 1.125rem; }
+h1 { font-size: 2.25rem; font-weight: 800; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.2rem; }
+h4 { font-size: 1rem; }
 
 p { color: var(--text-muted); line-height: 1.75; }
 
 a {
-  color: var(--gold);
+  color: var(--cyan);
   text-decoration: none;
   transition: color var(--transition);
 }
-a:hover { color: var(--gold-light); }
+a:hover { color: var(--gold); }
 
 ul, ol { padding-left: 1.25rem; }
 li { margin-bottom: 0.35rem; color: var(--text-muted); line-height: 1.7; }
-
 strong { color: var(--text); font-weight: 600; }
 
 code {
-  background: var(--gold-pale);
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--cyan-dim);
   border: 1px solid var(--border);
   border-radius: 4px;
-  padding: 0.1em 0.4em;
-  font-size: 0.875em;
-  color: var(--gold);
-  font-family: 'Courier New', monospace;
+  padding: 0.1em 0.45em;
+  color: var(--cyan);
 }
 
-/* ── Scrollbar ─────────────────────────────────────────────── */
-::-webkit-scrollbar { width: 6px; height: 6px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--gold-light); }
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-med); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan); }
 
-/* ── Layout Shell ──────────────────────────────────────────── */
-.app-shell {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-}
+/* ── App Shell ────────────────────────────────────────────────── */
+.app-shell { display: flex; width: 100%; min-height: 100vh; }
 
 .main-content {
   flex: 1;
   margin-left: var(--sidebar-width);
   min-height: 100vh;
   padding: 48px 48px 80px;
-  max-width: 1200px;
+  max-width: 1240px;
 }
 
 @media (max-width: 900px) {
-  .main-content {
-    margin-left: 0;
-    padding: 80px 20px 60px;
-  }
+  .main-content { margin-left: 0; padding: 80px 20px 60px; }
 }
 
-/* ── Utility ───────────────────────────────────────────────── */
-.divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 32px 0;
+/* ── Page-level text pattern ──────────────────────────────────── */
+.page-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 10px;
+}
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.page-subtitle {
+  font-size: 0.975rem;
+  color: var(--text-muted);
+  max-width: 620px;
+  line-height: 1.7;
 }
 
-.text-gold { color: var(--gold); }
-.text-muted { color: var(--text-muted); font-size: 0.9rem; }
+/* ── Utilities ────────────────────────────────────────────────── */
+.divider { border: none; border-top: 1px solid var(--border-soft); margin: 32px 0; }
+.text-cyan    { color: var(--cyan);    }
+.text-gold    { color: var(--gold);    }
+.text-emerald { color: var(--emerald); }
+.text-rose    { color: var(--rose);    }
+.text-muted   { color: var(--text-muted); font-size: 0.9rem; }
 
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
-@media (max-width: 768px) {
-  .grid-2, .grid-3 { grid-template-columns: 1fr; }
-}
-
-@media (max-width: 1100px) {
-  .grid-3 { grid-template-columns: repeat(2, 1fr); }
-}
+@media (max-width: 768px)  { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .grid-3 { grid-template-columns: repeat(2, 1fr); } }
